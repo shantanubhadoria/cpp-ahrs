@@ -42,9 +42,9 @@ void L3GD20H_Gyroscope::begin(void) {
 void L3GD20H_Gyroscope::read(void) {
   uint8_t block[6];
   i2cObject.readBlock(0x80 | L3GD20H_OUT_X_L, sizeof(block), block);
-  raw.x = (int16_t)(block[1] | block[0] << 8);
-  raw.y = (int16_t)(block[3] | block[2] << 8);
-  raw.z = (int16_t)(block[5] | block[4] << 8);
+  raw.x = (int16_t)(block[0] | block[1] << 8);
+  raw.y = (int16_t)(block[2] | block[3] << 8);
+  raw.z = (int16_t)(block[4] | block[5] << 8);
 }
 
 bool L3GD20H_Gyroscope::verifyConnection(void) {
